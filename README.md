@@ -17,7 +17,10 @@ composer require devkind/writesonic-php
 ## Usage
 
 ```php
-// Usage description here
+        $object  =  new WritesonicPhp(API_KEY);
+        /** @var \Devkind\WritesonicPhp\Endpoints\GoogleAds */
+        $endpoint = $object->GoogleAds;
+        $endpoint->generate('test', 'test', 'test');
 ```
 
 ### Testing

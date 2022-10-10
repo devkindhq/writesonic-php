@@ -32,10 +32,9 @@ final class WritesonicPhpTest extends TestCase
     public function testWritesonicPhpisAbleToMakeCallProperly(): void
     {
         $object  =  new WritesonicPhp('Writesonic123');
-        /**
-         * @var GoogleAds
-         */
+        /** @var \Devkind\WritesonicPhp\Endpoints\GoogleAds */
         $endpoint = $object->GoogleAds;
+        $endpoint->generate('test', 'test', 'test');
         $this->assertTrue(is_array($endpoint->generate('test', 'test', 'test')));
     }
 }
