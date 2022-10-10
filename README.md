@@ -1,8 +1,8 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind/writesonic-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind/writesonic-php)
-![GitHub Actions](https://github.com/devkind/writesonic-php/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
+![GitHub Actions](https://github.com/devkind-au/writesonic-php/actions/workflows/main.yml/badge.svg)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
@@ -40,13 +40,9 @@ If you discover any security related issues, please email backend@devkind.xom.au
 
 ## Credits
 
--   [Devkind Developer](https://github.com/devkind)
+-   [Devkind Developer](https://github.com/devkind-au-au)
 -   [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com) by [Beyond Code](http://beyondco.de/).

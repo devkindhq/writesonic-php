@@ -1,0 +1,44 @@
+{
+    "name": "devkind/writesonic-php",
+    "description": "",
+    "keywords": [
+        "devkind",
+        "writesonic-php"
+    ],
+    "homepage": "https://github.com/devkind/writesonic-php",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Devkind Developer",
+            "email": "backend@devkind.xom.au",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "nesbot/carbon": "^1.26.3 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devkind\\WritesonicPhp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Devkind\\WritesonicPhp\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

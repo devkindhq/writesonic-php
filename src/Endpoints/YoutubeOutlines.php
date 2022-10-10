@@ -1,0 +1,74 @@
+<?php
+
+namespace Devkind\WritesonicPhp\Endpoints;
+
+/**
+ * Endpoint class to get Youtube Outlines from WriteSonic
+ *
+ *
+ * <b> Video outlines that are a breeze to create and uber-engaging. </b>
+ */
+final class YoutubeOutlines extends Endpoint
+{
+    final public const ENDPOINT = '/v1/business/content/youtube-outlines';
+
+    /** @var string */
+    protected string $video_title;
+
+    /** @var string */
+    protected string $search_term;
+
+    /** @var string */
+    protected string $tone_of_voice;
+
+    function __construct(string $video_title, string $search_term, string $tone_of_voice)
+    {
+        $this->video_title = $video_title;
+        $this->search_term = $search_term;
+        $this->tone_of_voice = $tone_of_voice;
+    }
+
+    /**
+     * Accessor video_title attribute
+     *
+     * @return string
+     */
+    public function getVideoTitle(): string
+    {
+        return $this->video_title;
+    }
+
+    /**
+     * Accessor search_term attribute
+     *
+     * @return string
+     */
+    public function getSearchTerm(): string
+    {
+        return $this->search_term;
+    }
+
+    /**
+     * Accessor tone_of_voice attribute
+     *
+     * @return string
+     */
+    public function getToneOfVoice(): string
+    {
+        return $this->tone_of_voice;
+    }
+
+    /**
+     * JSON representation of this endpoint
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return json_encode([
+            "video_title" => $this->getVideoTitle(),
+            "search_term" => $this->getSearchTerm(),
+            "tone_of_voice" => $this->getToneOfVoice(),
+        ]);
+    }
+}

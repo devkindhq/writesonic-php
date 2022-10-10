@@ -1,0 +1,95 @@
+<?php
+
+namespace Devkind\WritesonicPhp;
+
+/**
+ * Endpoints interface
+ */
+interface Endpoints {
+
+    /**
+     * Our list of valid endpoints.
+     *
+     * @var array
+     */
+    public const ENDPOINTS = [
+         "googleAds" => "/v1/business/content/google-ads"
+        , "googleAdTitles" => "/v1/business/content/google-ad-titles"
+        , "googleAdDescriptions" => "/v1/business/content/google-ad-descriptions"
+        , "facebookAds" => "/v1/business/content/facebook-ads"
+        , "linkedinAdHeadlines" => "/v1/business/content/linkedin-ad-headlines"
+        , "linkedinAdDescriptions" => "/v1/business/content/linkedin-ad-descriptions"
+        , "linkedinAds" => "/v1/business/content/linkedin-ads"
+        , "linkedinPosts" => "/v1/business/content/linkedin-posts"
+        , "landingPageHeadlines" => "/v1/business/content/landing-page-headlines"
+        , "landingPages" => "/v1/business/content/landing-pages"
+        , "productDescriptions" => "/v1/business/content/product-descriptions"
+        , "amazonProductDescriptions" => "/v1/business/content/amazon-product-descriptions"
+        , "amazonProductTitles" => "/v1/business/content/amazon-product-titles"
+        , "amazonProductFeatures" => "/v1/business/content/amazon-product-features"
+        , "amazonAdHeadlines" => "/v1/business/content/amazon-ad-headlines"
+        , "blogIdeas" => "/v1/business/content/blog-ideas"
+        , "blogIntros" => "/v1/business/content/blog-intros"
+        , "blogOutlines" => "/v1/business/content/blog-outlines"
+        , "featureToBenefits" => "/v1/business/content/feature-to-benefits"
+        , "contentRephrase" => "/v1/business/content/content-rephrase"
+        , "sentenceExpand" => "/v1/business/content/sentence-expand"
+        , "contentShorten" => "/v1/business/content/content-shorten"
+        , "listicleIdeas" => "/v1/business/content/listicle-ideas"
+        , "emails" => "/v1/business/content/emails"
+        , "emailsV2" => "/v1/business/content/emails-v2"
+        , "growthIdeas" => "/v1/business/content/growth-ideas"
+        , "startupIdeas" => "/v1/business/content/startup-ideas"
+        , "pas" => "/v1/business/content/pas"
+        , "aida" => "/v1/business/content/aida"
+        , "metaHome" => "/v1/business/content/meta-home"
+        , "metaBlog" => "/v1/business/content/meta-blog"
+        , "metaProd" => "/v1/business/content/meta-prod"
+        , "youtubeTitles" => "/v1/business/content/youtube-titles"
+        , "youtubeIdeas" => "/v1/business/content/youtube-ideas"
+        , "youtubeOutlines" => "/v1/business/content/youtube-outlines"
+        , "youtubeDescriptions" => "/v1/business/content/youtube-descriptions"
+        , "youtubeIntros" => "/v1/business/content/youtube-intros"
+        , "keywordExtract" => "/v1/business/content/keyword-extract"
+        , "productNames" => "/v1/business/content/product-names"
+        , "analogies" => "/v1/business/content/analogies"
+        , "shortPressReleases" => "/v1/business/content/short-press-releases"
+        , "companyBios" => "/v1/business/content/company-bios"
+        , "companyVision" => "/v1/business/content/company-vision"
+        , "companyMission" => "/v1/business/content/company-mission"
+        , "personalBios" => "/v1/business/content/personal-bios"
+        , "summary" => "/v1/business/content/summary"
+        , "aiArticleWriterV2" => "/v1/business/content/ai-article-writer-v2"
+        , "aiArticleWriterV3" => "/v1/business/content/ai-article-writer-v3"
+        , "subjectLines" => "/v1/business/content/subject-lines"
+        , "coldEmails" => "/v1/business/content/cold-emails"
+        , "realEstateListing" => "/v1/business/content/real-estate-listing"
+        , "reviewResponses" => "/v1/business/content/review-responses"
+        , "quoraAnswers" => "/v1/business/content/quora-answers"
+        , "paragraphWriter" => "/v1/business/content/paragraph-writer"
+        , "conclusionWriter" => "/v1/business/content/conclusion-writer"
+        , "instagramCaptions" => "/v1/business/content/instagram-captions"
+        , "tiktokScripts" => "/v1/business/content/tiktok-scripts"
+        , "tweets" => "/v1/business/content/tweets"
+        , "tiktokHooks" => "/v1/business/content/tiktok-hooks"
+        , "storyGeneration" => "/v1/business/content/story-generation"
+        , "questionGeneration" => "/v1/business/content/question-generation"
+        , "callToAction" => "/v1/business/content/call-to-action"
+        , "lyricsGenerator" => "/v1/business/content/lyrics-generator"
+        , "defineThis" => "/v1/business/content/define-this"
+        , "googleAdTitlesV2" => "/v1/business/content/google-ad-titles-v2"
+        , "googleAdDescriptionsV2" => "/v1/business/content/google-ad-descriptions-v2"
+        , "bulletpointAnswers" => "/v1/business/content/bulletpoint-answers"
+        , "rewriteWithKeywords" => "/v1/business/content/rewrite-with-keywords"
+        , "ansMyQues" => "/v1/business/content/ans-my-ques"
+        , "appNotifications" => "/v1/business/content/app-notifications"
+        , "prosAndCons" => "/v1/business/content/pros-and-cons"
+        , "activeVoice" => "/v1/business/content/active-voice"
+        , "youtubeHooks" => "/v1/business/content/youtube-hooks"
+        , "instantArticleWriter" => "/v1/business/content/instant-article-writer"
+        , "youtubeIntrosV2" => "/v1/business/content/youtube-intros-v2"
+        , "youtubeDescriptionsV2" => "/v1/business/content/youtube-descriptions-v2"
+        , "reviewGenerator" => "/v1/business/content/review-generator"
+      ];
+
+}
