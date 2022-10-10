@@ -131,15 +131,17 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
      */
     public function getAttribute($key)
     {
-        if (! $key) {
+        if (!$key) {
             return;
         }
 
         // If the attribute exists in the attribute array or has a "get" mutator we will
         // get the attribute's value. Otherwise, we will proceed as if the developers
         // are asking for a relationship's value. This covers both types of values.
-        if (array_key_exists($key, $this->attributes)
-            || $this->hasGetMutator($key)) {
+        if (
+            array_key_exists($key, $this->attributes)
+            || $this->hasGetMutator($key)
+        ) {
             return $this->getAttributeValue($key);
         }
     }
@@ -181,10 +183,12 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
         $dirty = [];
 
         foreach ($this->attributes as $key => $value) {
-            if (! array_key_exists($key, $this->original)) {
+            if (!array_key_exists($key, $this->original)) {
                 $dirty[$key] = $value;
-            } elseif ($value !== $this->original[$key] &&
-                ! $this->originalIsNumericallyEquivalent($key)) {
+            } elseif (
+                $value !== $this->original[$key] &&
+                !$this->originalIsNumericallyEquivalent($key)
+            ) {
                 $dirty[$key] = $value;
             }
         }
@@ -240,7 +244,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
         // If the attribute is listed as a date, we will convert it to a DateTime
         // instance on retrieval, which makes it quite convenient to work with
         // date fields without having to create a mutator for each property.
-        if (in_array($key, $this->dates) && ! is_null($value)) {
+        if (in_array($key, $this->dates) && !is_null($value)) {
             return $this->asDateTime($value);
         }
 
@@ -256,7 +260,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
      */
     public function hasGetMutator($key)
     {
-        return method_exists($this, 'get'.Util::studly($key).'Attribute');
+        return method_exists($this, 'get' . Util::studly($key) . 'Attribute');
     }
 
     /**
@@ -269,7 +273,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
      */
     protected function mutateAttribute($key, $value)
     {
-        return $this->{'get'.Util::studly($key).'Attribute'}($value);
+        return $this->{'get' . Util::studly($key) . 'Attribute'}($value);
     }
 
     /**
@@ -281,7 +285,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
      */
     public function hasSetMutator($key)
     {
-        return method_exists($this, 'set'.Util::studly($key).'Attribute');
+        return method_exists($this, 'set' . Util::studly($key) . 'Attribute');
     }
 
     /**
@@ -298,7 +302,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
         // which simply lets the developers tweak the attribute as it is set on
         // the model, such as "json_encoding" an listing of data for storage.
         if ($this->hasSetMutator($key)) {
-            $method = 'set'.Util::studly($key).'Attribute';
+            $method = 'set' . Util::studly($key) . 'Attribute';
 
             return $this->{$method}($value);
         }
@@ -536,7 +540,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
         return $arr;
     }
 
-    
+
     /**
      * Dynamically retrieve attributes on the model.
      *
@@ -571,7 +575,7 @@ abstract class AbstractModel implements JsonSerializable, Serializable, ArrayAcc
      */
     public function __isset($key)
     {
-        return ! is_null($this->getAttribute($key));
+        return !is_null($this->getAttribute($key));
     }
 
     /**

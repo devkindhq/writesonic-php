@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use InvalidArgumentException;
 use Devkind\WritesonicPhp\Util;
 use Devkind\WritesonicPhp\Endpoints\Endpoint;
- 
+
 
 class WritesonicPhp extends Client implements Endpoints
 {
@@ -53,7 +53,7 @@ class WritesonicPhp extends Client implements Endpoints
         return new static($token, $base);
     }
 
-      /**
+    /**
      * @return string
      */
     public function getBase()
@@ -78,7 +78,7 @@ class WritesonicPhp extends Client implements Endpoints
         return $this;
     }
 
-     /**
+    /**
      * Set our endpoint by accessing it like a property.
      *
      * @param string $endpoint
@@ -93,7 +93,6 @@ class WritesonicPhp extends Client implements Endpoints
         }
 
         return new Endpoint($this);
-
     }
 
     /**
@@ -107,7 +106,7 @@ class WritesonicPhp extends Client implements Endpoints
      */
     public function __call($method, $parameters)
     {
-        if(method_exists($this, $method)){
+        if (method_exists($this, $method)) {
             return $method();
         }
         return $this->__get($method);
@@ -116,7 +115,7 @@ class WritesonicPhp extends Client implements Endpoints
 
     /**
      * Get the value of root
-     */ 
+     */
     public function getRoot()
     {
         return $this->root;
