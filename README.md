@@ -1,4 +1,4 @@
-# Very short description of the package
+# PHP client to communicate with WriteSonic API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
 [![Total Downloads](https://img.shields.io/packagist/dt/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
