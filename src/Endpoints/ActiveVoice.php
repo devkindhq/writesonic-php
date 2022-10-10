@@ -15,9 +15,15 @@ final class ActiveVoice extends Endpoint
     /** @var string */
     protected string $sentence;
 
-    function __construct(string $sentence)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $sentence)
     {
         $this->sentence = $sentence;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

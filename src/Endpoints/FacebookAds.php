@@ -24,12 +24,18 @@ final class FacebookAds extends Endpoint
     /** @var string */
     protected string $promotion;
 
-    function __construct(string $product_name, string $product_description, string $occasion, string $promotion)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_name, string $product_description, string $occasion, string $promotion)
     {
         $this->product_name = $product_name;
         $this->product_description = $product_description;
         $this->occasion = $occasion;
         $this->promotion = $promotion;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

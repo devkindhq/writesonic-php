@@ -15,9 +15,15 @@ final class ParagraphWriter extends Endpoint
     /** @var string */
     protected string $paragraph_title;
 
-    function __construct(string $paragraph_title)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $paragraph_title)
     {
         $this->paragraph_title = $paragraph_title;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

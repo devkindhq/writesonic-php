@@ -15,9 +15,15 @@ final class KeywordExtract extends Endpoint
     /** @var string */
     protected string $content;
 
-    function __construct(string $content)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $content)
     {
         $this->content = $content;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

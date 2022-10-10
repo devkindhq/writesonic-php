@@ -15,9 +15,15 @@ final class Emails extends Endpoint
     /** @var string */
     protected string $key_points;
 
-    function __construct(string $key_points)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $key_points)
     {
         $this->key_points = $key_points;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

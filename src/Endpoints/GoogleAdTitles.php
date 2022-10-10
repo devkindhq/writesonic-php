@@ -24,7 +24,12 @@ final class GoogleAdTitles extends Endpoint
     /** @var string */
     protected string $secondary_keywords;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_description,
         string $primary_keyword,
@@ -34,6 +39,7 @@ final class GoogleAdTitles extends Endpoint
         $this->product_description = $product_description;
         $this->primary_keyword = $primary_keyword;
         $this->secondary_keywords = $secondary_keywords;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

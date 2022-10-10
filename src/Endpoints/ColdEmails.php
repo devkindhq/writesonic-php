@@ -24,12 +24,18 @@ final class ColdEmails extends Endpoint
     /** @var string */
     protected string $scenario;
 
-    function __construct(string $you, string $to, string $goal, string $scenario)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $you, string $to, string $goal, string $scenario)
     {
         $this->you = $you;
         $this->to = $to;
         $this->goal = $goal;
         $this->scenario = $scenario;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

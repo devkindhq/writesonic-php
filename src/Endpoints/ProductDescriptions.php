@@ -27,7 +27,12 @@ final class ProductDescriptions extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_characteristics,
         string $primary_keyword,
@@ -39,6 +44,7 @@ final class ProductDescriptions extends Endpoint
         $this->primary_keyword = $primary_keyword;
         $this->secondary_keyword = $secondary_keyword;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

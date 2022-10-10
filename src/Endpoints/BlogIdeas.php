@@ -18,10 +18,16 @@ final class BlogIdeas extends Endpoint
     /** @var string */
     protected string $primary_keyword;
 
-    function __construct(string $topic, string $primary_keyword)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $topic, string $primary_keyword)
     {
         $this->topic = $topic;
         $this->primary_keyword = $primary_keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

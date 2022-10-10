@@ -18,10 +18,16 @@ final class QuoraAnswers extends Endpoint
     /** @var string */
     protected string $info;
 
-    function __construct(string $question, string $info)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $question, string $info)
     {
         $this->question = $question;
         $this->info = $info;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

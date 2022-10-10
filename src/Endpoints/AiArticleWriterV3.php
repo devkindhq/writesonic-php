@@ -21,11 +21,17 @@ final class AiArticleWriterV3 extends Endpoint
     /** @var string */
     protected string $article_sections;
 
-    function __construct(string $article_title, string $article_intro, string $article_sections)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $article_title, string $article_intro, string $article_sections)
     {
         $this->article_title = $article_title;
         $this->article_intro = $article_intro;
         $this->article_sections = $article_sections;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

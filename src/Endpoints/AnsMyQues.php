@@ -15,9 +15,15 @@ final class AnsMyQues extends Endpoint
     /** @var string */
     protected string $question;
 
-    function __construct(string $question)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $question)
     {
         $this->question = $question;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -21,11 +21,17 @@ final class EmailsV2 extends Endpoint
     /** @var string */
     protected string $description;
 
-    function __construct(string $recipient, string $recipient_position, string $description)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $recipient, string $recipient_position, string $description)
     {
         $this->recipient = $recipient;
         $this->recipient_position = $recipient_position;
         $this->description = $description;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

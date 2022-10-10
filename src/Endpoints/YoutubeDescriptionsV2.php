@@ -18,10 +18,16 @@ final class YoutubeDescriptionsV2 extends Endpoint
     /** @var string */
     protected string $keywords;
 
-    function __construct(string $video_title, string $keywords)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $video_title, string $keywords)
     {
         $this->video_title = $video_title;
         $this->keywords = $keywords;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

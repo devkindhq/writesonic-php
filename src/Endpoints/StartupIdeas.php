@@ -12,8 +12,14 @@ final class StartupIdeas extends Endpoint
 {
     final public const ENDPOINT = '/v1/business/content/startup-ideas';
 
-    function __construct()
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate()
     {
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

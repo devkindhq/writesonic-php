@@ -18,10 +18,16 @@ final class YoutubeHooks extends Endpoint
     /** @var string */
     protected string $tone;
 
-    function __construct(string $video_title, string $tone)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $video_title, string $tone)
     {
         $this->video_title = $video_title;
         $this->tone = $tone;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

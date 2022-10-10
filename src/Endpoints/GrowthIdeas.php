@@ -24,7 +24,12 @@ final class GrowthIdeas extends Endpoint
     /** @var string */
     protected string $target_audience;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_description,
         string $target_keywords,
@@ -34,6 +39,7 @@ final class GrowthIdeas extends Endpoint
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
         $this->target_audience = $target_audience;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

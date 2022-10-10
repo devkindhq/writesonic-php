@@ -15,9 +15,15 @@ final class InstantArticleWriter extends Endpoint
     /** @var string */
     protected string $article_title;
 
-    function __construct(string $article_title)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $article_title)
     {
         $this->article_title = $article_title;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

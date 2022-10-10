@@ -21,11 +21,17 @@ final class PersonalBios extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(string $name, string $personal_info, string $tone_of_voice)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $name, string $personal_info, string $tone_of_voice)
     {
         $this->name = $name;
         $this->personal_info = $personal_info;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

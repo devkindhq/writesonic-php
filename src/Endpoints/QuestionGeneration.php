@@ -15,9 +15,15 @@ final class QuestionGeneration extends Endpoint
     /** @var string */
     protected string $paragraph;
 
-    function __construct(string $paragraph)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $paragraph)
     {
         $this->paragraph = $paragraph;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

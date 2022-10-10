@@ -24,12 +24,18 @@ final class GenerateImage extends Endpoint
     /** @var int */
     protected int $image_height;
 
-    function __construct(string $prompt, int $num_images, int $image_width, int $image_height)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $prompt, int $num_images, int $image_width, int $image_height)
     {
         $this->prompt = $prompt;
         $this->num_images = $num_images;
         $this->image_width = $image_width;
         $this->image_height = $image_height;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -15,9 +15,15 @@ final class ConclusionWriter extends Endpoint
     /** @var string */
     protected string $article;
 
-    function __construct(string $article)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $article)
     {
         $this->article = $article;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

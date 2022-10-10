@@ -18,10 +18,16 @@ final class ProductNames extends Endpoint
     /** @var string */
     protected string $target_keywords;
 
-    function __construct(string $product_description, string $target_keywords)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_description, string $target_keywords)
     {
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

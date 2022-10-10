@@ -21,11 +21,17 @@ final class ReviewGenerator extends Endpoint
     /** @var string */
     protected string $description;
 
-    function __construct(string $product_name, string $experience, string $description)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_name, string $experience, string $description)
     {
         $this->product_name = $product_name;
         $this->experience = $experience;
         $this->description = $description;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

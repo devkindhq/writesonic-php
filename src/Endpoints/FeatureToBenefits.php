@@ -18,10 +18,16 @@ final class FeatureToBenefits extends Endpoint
     /** @var string */
     protected string $feature;
 
-    function __construct(string $product_description, string $feature)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_description, string $feature)
     {
         $this->product_description = $product_description;
         $this->feature = $feature;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

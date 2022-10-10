@@ -15,9 +15,15 @@ final class BlogIntros extends Endpoint
     /** @var string */
     protected string $blog_title;
 
-    function __construct(string $blog_title)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $blog_title)
     {
         $this->blog_title = $blog_title;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

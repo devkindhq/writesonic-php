@@ -18,10 +18,16 @@ final class CompanyVision extends Endpoint
     /** @var string */
     protected string $company_description;
 
-    function __construct(string $company_name, string $company_description)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $company_name, string $company_description)
     {
         $this->company_name = $company_name;
         $this->company_description = $company_description;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

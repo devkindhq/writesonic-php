@@ -18,10 +18,16 @@ final class RewriteWithKeywords extends Endpoint
     /** @var string */
     protected string $keywords;
 
-    function __construct(string $article, string $keywords)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $article, string $keywords)
     {
         $this->article = $article;
         $this->keywords = $keywords;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

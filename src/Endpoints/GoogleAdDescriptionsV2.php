@@ -18,10 +18,16 @@ final class GoogleAdDescriptionsV2 extends Endpoint
     /** @var string */
     protected string $details;
 
-    function __construct(string $name, string $details)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $name, string $details)
     {
         $this->name = $name;
         $this->details = $details;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

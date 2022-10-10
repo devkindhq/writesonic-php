@@ -24,12 +24,18 @@ final class ShortPressReleases extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(string $information, string $product_name, string $target_keyword, string $tone_of_voice)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $information, string $product_name, string $target_keyword, string $tone_of_voice)
     {
         $this->information = $information;
         $this->product_name = $product_name;
         $this->target_keyword = $target_keyword;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

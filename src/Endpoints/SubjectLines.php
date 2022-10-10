@@ -18,10 +18,16 @@ final class SubjectLines extends Endpoint
     /** @var string */
     protected string $description;
 
-    function __construct(string $product, string $description)
+    /**
+    * Generates the content on the basis of required parameters.
+ *
+ * @return string
+ */
+    public function generate(string $product, string $description)
     {
         $this->product = $product;
         $this->description = $description;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

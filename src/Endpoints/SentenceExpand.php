@@ -18,10 +18,16 @@ final class SentenceExpand extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(string $content_to_expand, string $tone_of_voice)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $content_to_expand, string $tone_of_voice)
     {
         $this->content_to_expand = $content_to_expand;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -21,11 +21,17 @@ final class CompanyBios extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(string $company_name, string $company_info, string $tone_of_voice)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $company_name, string $company_info, string $tone_of_voice)
     {
         $this->company_name = $company_name;
         $this->company_info = $company_info;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

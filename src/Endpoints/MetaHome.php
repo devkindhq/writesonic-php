@@ -24,7 +24,12 @@ final class MetaHome extends Endpoint
     /** @var string */
     protected string $primary_keyword;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_description,
         string $search_term,
@@ -34,6 +39,7 @@ final class MetaHome extends Endpoint
         $this->product_description = $product_description;
         $this->search_term = $search_term;
         $this->primary_keyword = $primary_keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

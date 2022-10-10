@@ -15,9 +15,15 @@ final class ContentShorten extends Endpoint
     /** @var string */
     protected string $content_to_shorten;
 
-    function __construct(string $content_to_shorten)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $content_to_shorten)
     {
         $this->content_to_shorten = $content_to_shorten;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

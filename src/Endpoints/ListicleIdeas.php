@@ -15,9 +15,15 @@ final class ListicleIdeas extends Endpoint
     /** @var string */
     protected string $search_term;
 
-    function __construct(string $search_term)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $search_term)
     {
         $this->search_term = $search_term;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

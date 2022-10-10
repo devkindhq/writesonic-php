@@ -18,10 +18,16 @@ final class BlogOutlines extends Endpoint
     /** @var string */
     protected string $blog_intro;
 
-    function __construct(string $blog_title, string $blog_intro)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $blog_title, string $blog_intro)
     {
         $this->blog_title = $blog_title;
         $this->blog_intro = $blog_intro;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -36,7 +36,12 @@ final class RealEstateListing extends Endpoint
     /** @var string */
     protected string $additional_features;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $type,
         string $price,
         string $location,
@@ -54,6 +59,7 @@ final class RealEstateListing extends Endpoint
         $this->kitchen = $kitchen;
         $this->bathroom = $bathroom;
         $this->additional_features = $additional_features;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

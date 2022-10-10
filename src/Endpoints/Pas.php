@@ -18,10 +18,16 @@ final class Pas extends Endpoint
     /** @var string */
     protected string $product_description;
 
-    function __construct(string $product_name, string $product_description)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_name, string $product_description)
     {
         $this->product_name = $product_name;
         $this->product_description = $product_description;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

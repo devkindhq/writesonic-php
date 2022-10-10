@@ -21,11 +21,17 @@ final class GoogleAds extends Endpoint
     /** @var string */
     protected string $search_term;
 
-    function __construct(string $product_name, string $product_description, string $search_term)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $product_name, string $product_description, string $search_term)
     {
         $this->product_name = $product_name;
         $this->product_description = $product_description;
         $this->search_term = $search_term;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

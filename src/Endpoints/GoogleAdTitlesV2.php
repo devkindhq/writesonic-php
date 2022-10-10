@@ -21,11 +21,17 @@ final class GoogleAdTitlesV2 extends Endpoint
     /** @var string */
     protected string $keyword;
 
-    function __construct(string $company_name, string $description, string $keyword)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $company_name, string $description, string $keyword)
     {
         $this->company_name = $company_name;
         $this->description = $description;
         $this->keyword = $keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -15,9 +15,15 @@ final class DefineThis extends Endpoint
     /** @var string */
     protected string $keyword;
 
-    function __construct(string $keyword)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $keyword)
     {
         $this->keyword = $keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

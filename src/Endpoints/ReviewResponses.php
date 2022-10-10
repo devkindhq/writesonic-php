@@ -27,13 +27,19 @@ final class ReviewResponses extends Endpoint
     /** @var string */
     protected string $user;
 
-    function __construct(string $review, string $type, string $company, string $contact, string $user)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $review, string $type, string $company, string $contact, string $user)
     {
         $this->review = $review;
         $this->type = $type;
         $this->company = $company;
         $this->contact = $contact;
         $this->user = $user;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

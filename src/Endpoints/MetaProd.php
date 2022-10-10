@@ -27,7 +27,12 @@ final class MetaProd extends Endpoint
     /** @var string */
     protected string $primary_keyword;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_description,
         string $search_term,
@@ -39,6 +44,7 @@ final class MetaProd extends Endpoint
         $this->search_term = $search_term;
         $this->company_name = $company_name;
         $this->primary_keyword = $primary_keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

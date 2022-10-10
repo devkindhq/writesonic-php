@@ -15,9 +15,15 @@ final class Tweets extends Endpoint
     /** @var string */
     protected string $topic;
 
-    function __construct(string $topic)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $topic)
     {
         $this->topic = $topic;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

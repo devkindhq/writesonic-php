@@ -24,12 +24,18 @@ final class MetaBlog extends Endpoint
     /** @var string */
     protected string $primary_keyword;
 
-    function __construct(string $blog_description, string $search_term, string $blog_title, string $primary_keyword)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $blog_description, string $search_term, string $blog_title, string $primary_keyword)
     {
         $this->blog_description = $blog_description;
         $this->search_term = $search_term;
         $this->blog_title = $blog_title;
         $this->primary_keyword = $primary_keyword;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

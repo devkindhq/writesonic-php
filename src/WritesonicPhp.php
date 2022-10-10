@@ -29,7 +29,7 @@ class WritesonicPhp extends Client implements Endpoints
     public function __construct($token, $base =  'v1')
     {
         $this->root = Util::normalizeDomain(static::HOST);
-        $base_uri = "https://{$this->root}/{$base}";
+        $base_uri = "https://{$this->root}";
 
         $this->setBase($base);
         parent::__construct([
@@ -88,11 +88,13 @@ class WritesonicPhp extends Client implements Endpoints
      */
     public function __get($endpoint)
     {
-        if (array_key_exists($endpoint, static::ENDPOINTS)) {
-            $this->api = $endpoint;
+        $className = "Devkind\\WritesonicPhp\\Endpoints\\" . ucfirst(Util::camelize($endpoint));
+        if (class_exists($className)) {
+            return new $className($this);
         }
 
-        return new Endpoint($this);
+        // If user tries to access property that doesn't exist, scold them.
+        throw new \RuntimeException('Property does not exist on API');
     }
 
     /**

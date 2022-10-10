@@ -21,11 +21,17 @@ final class YoutubeTitles extends Endpoint
     /** @var string */
     protected string $tone_of_voice;
 
-    function __construct(string $video_description, string $search_term, string $tone_of_voice)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $video_description, string $search_term, string $tone_of_voice)
     {
         $this->video_description = $video_description;
         $this->search_term = $search_term;
         $this->tone_of_voice = $tone_of_voice;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

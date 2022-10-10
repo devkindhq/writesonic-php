@@ -18,10 +18,16 @@ final class LyricsGenerator extends Endpoint
     /** @var string */
     protected string $genre;
 
-    function __construct(string $topic, string $genre)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $topic, string $genre)
     {
         $this->topic = $topic;
         $this->genre = $genre;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -2,8 +2,9 @@
 
 namespace Devkind\WritesonicPhp\Endpoints;
 
-use Devkind\WritesonicPhp\Endpoints;
+use GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
+use Devkind\WritesonicPhp\Endpoints;
 use Devkind\WritesonicPhp\WritesonicPhp;
 
 
@@ -78,21 +79,29 @@ class Endpoint implements Endpoints
     /**
      * Get the value of language
      */
-    public function generate($parameters)
+    public function request($endpoint, $parameters)
     {
+        $stream = Utils::streamFor($parameters);
 
-        $request =   $this->client->request(
+        $request = $this->client->request(
             'POST',
-            '?language=' . $this->getLanguage() . '&engine=' . $this->getEngine(),
-            ['form_params' =>  $parameters]
+            $this->getUrl($endpoint),
+            ['body' => $stream]
         );
-
-
+    
 
         $data = json_decode($request->getBody()->getContents(), true);
         return  $data;
     }
 
+
+    /**
+     * Get the value of URL
+     */
+    public function getUrl($endpoint)
+    {
+        return $endpoint . '?language=' . $this->getLanguage() . '&engine=' . $this->getEngine();
+    }
 
     /**
      * Get the value of language

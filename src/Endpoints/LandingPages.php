@@ -27,7 +27,12 @@ final class LandingPages extends Endpoint
     /** @var string */
     protected string $feature_3;
 
-    function __construct(
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(
         string $product_name,
         string $product_description,
         string $feature_1,
@@ -39,6 +44,7 @@ final class LandingPages extends Endpoint
         $this->feature_1 = $feature_1;
         $this->feature_2 = $feature_2;
         $this->feature_3 = $feature_3;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

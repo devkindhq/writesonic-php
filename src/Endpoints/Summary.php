@@ -18,10 +18,16 @@ final class Summary extends Endpoint
     /** @var string */
     protected string $article_text;
 
-    function __construct(string $article_url, string $article_text)
+    /**
+     * Generates the content on the basis of required parameters.
+     *
+     * @return string
+     */
+    public function generate(string $article_url, string $article_text)
     {
         $this->article_url = $article_url;
         $this->article_text = $article_text;
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
