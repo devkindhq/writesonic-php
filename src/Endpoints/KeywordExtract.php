@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class KeywordExtract extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/keyword-extract';
+    public const ENDPOINT = '/v1/business/content/keyword-extract';
 
     /** @var string */
     protected string $content;

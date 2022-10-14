@@ -5,7 +5,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
 use GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
 use Devkind\WritesonicPhp\Endpoints;
-use Devkind\WritesonicPhp\WritesonicPhp;
+use Devkind\WritesonicPhp\Writesonic as WritesonicPhp;
 
 
 /**
@@ -88,7 +88,7 @@ class Endpoint implements Endpoints
             $this->getUrl($endpoint),
             ['body' => $stream]
         );
-    
+
 
         $data = json_decode($request->getBody()->getContents(), true);
         return  $data;

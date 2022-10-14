@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class InstagramCaptions extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/instagram-captions';
+    public const ENDPOINT = '/v1/business/content/instagram-captions';
 
     /** @var string */
     protected string $description;

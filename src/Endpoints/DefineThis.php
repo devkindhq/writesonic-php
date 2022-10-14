@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class DefineThis extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/define-this';
+    public const ENDPOINT = '/v1/business/content/define-this';
 
     /** @var string */
     protected string $keyword;

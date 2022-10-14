@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class LandingPageHeadlines extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/landing-page-headlines';
+    public const ENDPOINT = '/v1/business/content/landing-page-headlines';
 
     /** @var string */
     protected string $product_name;

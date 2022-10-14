@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class Summary extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/summary';
+    public const ENDPOINT = '/v1/business/content/summary';
 
     /** @var string */
     protected string $article_url;

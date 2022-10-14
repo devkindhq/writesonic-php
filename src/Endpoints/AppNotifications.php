@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class AppNotifications extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/app-notifications';
+    public const ENDPOINT = '/v1/business/content/app-notifications';
 
     /** @var string */
     protected string $description;

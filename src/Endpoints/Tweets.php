@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class Tweets extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/tweets';
+    public const ENDPOINT = '/v1/business/content/tweets';
 
     /** @var string */
     protected string $topic;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class QuoraAnswers extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/quora-answers';
+    public const ENDPOINT = '/v1/business/content/quora-answers';
 
     /** @var string */
     protected string $question;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class AmazonAdHeadlines extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/amazon-ad-headlines';
+    public const ENDPOINT = '/v1/business/content/amazon-ad-headlines';
 
     /** @var string */
     protected string $product_name;

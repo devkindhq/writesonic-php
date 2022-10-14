@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class BulletpointAnswers extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/bulletpoint-answers';
+    public const ENDPOINT = '/v1/business/content/bulletpoint-answers';
 
     /** @var string */
     protected string $question;

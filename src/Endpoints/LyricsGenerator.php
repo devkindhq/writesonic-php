@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class LyricsGenerator extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/lyrics-generator';
+    public const ENDPOINT = '/v1/business/content/lyrics-generator';
 
     /** @var string */
     protected string $topic;

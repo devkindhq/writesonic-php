@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class YoutubeIntros extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/youtube-intros';
+    public const ENDPOINT = '/v1/business/content/youtube-intros';
 
     /** @var string */
     protected string $video_title;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class MetaHome extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/meta-home';
+    public const ENDPOINT = '/v1/business/content/meta-home';
 
     /** @var string */
     protected string $product_name;

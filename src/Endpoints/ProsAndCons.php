@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ProsAndCons extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/pros-and-cons';
+    public const ENDPOINT = '/v1/business/content/pros-and-cons';
 
     /** @var string */
     protected string $paragraph;

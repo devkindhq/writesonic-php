@@ -8,7 +8,7 @@ use Devkind\WritesonicPhp\Util;
 use Devkind\WritesonicPhp\Endpoints\Endpoint;
 
 
-class WritesonicPhp extends Client implements Endpoints
+class Writesonic extends Client implements Endpoints
 {
 
     public const HOST = 'https://api.writesonic.com/';

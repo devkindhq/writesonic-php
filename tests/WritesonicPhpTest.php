@@ -5,7 +5,7 @@ namespace Devkind\WritesonicPhp\Tests;
 use Devkind\WritesonicPhp\Endpoints\Endpoint;
 use Devkind\WritesonicPhp\Endpoints\GoogleAds;
 use Devkind\WritesonicPhp\Util;
-use Devkind\WritesonicPhp\WritesonicPhp;
+use Devkind\WritesonicPhp\Writesonic as WritesonicPhp;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class StoryGeneration extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/story-generation';
+    public const ENDPOINT = '/v1/business/content/story-generation';
 
     /** @var string */
     protected string $description;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class RealEstateListing extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/real-estate-listing';
+    public const ENDPOINT = '/v1/business/content/real-estate-listing';
 
     /** @var string */
     protected string $type;

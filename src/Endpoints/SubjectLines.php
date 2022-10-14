@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class SubjectLines extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/subject-lines';
+    public const ENDPOINT = '/v1/business/content/subject-lines';
 
     /** @var string */
     protected string $product;

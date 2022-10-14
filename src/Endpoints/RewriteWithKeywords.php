@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class RewriteWithKeywords extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/rewrite-with-keywords';
+    public const ENDPOINT = '/v1/business/content/rewrite-with-keywords';
 
     /** @var string */
     protected string $article;

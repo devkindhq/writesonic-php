@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class QuestionGeneration extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/question-generation';
+    public const ENDPOINT = '/v1/business/content/question-generation';
 
     /** @var string */
     protected string $paragraph;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class AmazonProductFeatures extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/amazon-product-features';
+    public const ENDPOINT = '/v1/business/content/amazon-product-features';
 
     /** @var string */
     protected string $product_name;

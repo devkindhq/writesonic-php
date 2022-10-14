@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class LinkedinAdHeadlines extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/linkedin-ad-headlines';
+    public const ENDPOINT = '/v1/business/content/linkedin-ad-headlines';
 
     /** @var string */
     protected string $product_name;

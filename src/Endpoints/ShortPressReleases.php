@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ShortPressReleases extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/short-press-releases';
+    public const ENDPOINT = '/v1/business/content/short-press-releases';
 
     /** @var string */
     protected string $information;

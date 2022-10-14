@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class TiktokHooks extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/tiktok-hooks';
+    public const ENDPOINT = '/v1/business/content/tiktok-hooks';
 
     /** @var string */
     protected string $description;

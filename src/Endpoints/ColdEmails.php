@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ColdEmails extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/cold-emails';
+    public const ENDPOINT = '/v1/business/content/cold-emails';
 
     /** @var string */
     protected string $you;

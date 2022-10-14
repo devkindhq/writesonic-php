@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ConclusionWriter extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/conclusion-writer';
+    public const ENDPOINT = '/v1/business/content/conclusion-writer';
 
     /** @var string */
     protected string $article;

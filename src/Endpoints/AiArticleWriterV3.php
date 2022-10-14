@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class AiArticleWriterV3 extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/ai-article-writer-v3';
+    public const ENDPOINT = '/v1/business/content/ai-article-writer-v3';
 
     /** @var string */
     protected string $article_title;

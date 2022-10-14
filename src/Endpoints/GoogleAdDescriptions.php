@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class GoogleAdDescriptions extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/google-ad-descriptions';
+    public const ENDPOINT = '/v1/business/content/google-ad-descriptions';
 
     /** @var string */
     protected string $product_name;

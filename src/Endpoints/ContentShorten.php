@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ContentShorten extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/content-shorten';
+    public const ENDPOINT = '/v1/business/content/content-shorten';
 
     /** @var string */
     protected string $content_to_shorten;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class StartupIdeas extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/startup-ideas';
+    public const ENDPOINT = '/v1/business/content/startup-ideas';
 
     /**
      * Generates the content on the basis of required parameters.

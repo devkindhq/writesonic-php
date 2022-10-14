@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ContentRephrase extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/content-rephrase';
+    public const ENDPOINT = '/v1/business/content/content-rephrase';
 
     /** @var string */
     protected string $content_to_rephrase;

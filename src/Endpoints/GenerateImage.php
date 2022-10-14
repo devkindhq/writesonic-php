@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class GenerateImage extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/photosonic/generate-image';
+    public const ENDPOINT = '/v1/business/photosonic/generate-image';
 
     /** @var string */
     protected string $prompt;

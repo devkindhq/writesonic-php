@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class AnsMyQues extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/ans-my-ques';
+    public const ENDPOINT = '/v1/business/content/ans-my-ques';
 
     /** @var string */
     protected string $question;

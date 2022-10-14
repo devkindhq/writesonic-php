@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ActiveVoice extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/active-voice';
+    public const ENDPOINT = '/v1/business/content/active-voice';
 
     /** @var string */
     protected string $sentence;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class FacebookAds extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/facebook-ads';
+    public const ENDPOINT = '/v1/business/content/facebook-ads';
 
     /** @var string */
     protected string $product_name;

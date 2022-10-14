@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ReviewResponses extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/review-responses';
+    public const ENDPOINT = '/v1/business/content/review-responses';
 
     /** @var string */
     protected string $review;

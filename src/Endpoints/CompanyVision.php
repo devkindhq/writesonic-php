@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class CompanyVision extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/company-vision';
+    public const ENDPOINT = '/v1/business/content/company-vision';
 
     /** @var string */
     protected string $company_name;

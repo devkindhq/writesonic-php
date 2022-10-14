@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class InstantArticleWriter extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/instant-article-writer';
+    public const ENDPOINT = '/v1/business/content/instant-article-writer';
 
     /** @var string */
     protected string $article_title;

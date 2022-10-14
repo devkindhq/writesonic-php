@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ParagraphWriter extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/paragraph-writer';
+    public const ENDPOINT = '/v1/business/content/paragraph-writer';
 
     /** @var string */
     protected string $paragraph_title;

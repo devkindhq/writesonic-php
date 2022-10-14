@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class CallToAction extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/call-to-action';
+    public const ENDPOINT = '/v1/business/content/call-to-action';
 
     /** @var string */
     protected string $description;

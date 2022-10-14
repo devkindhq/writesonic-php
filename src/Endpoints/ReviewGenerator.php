@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ReviewGenerator extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/review-generator';
+    public const ENDPOINT = '/v1/business/content/review-generator';
 
     /** @var string */
     protected string $product_name;

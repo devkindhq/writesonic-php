@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class Pas extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/pas';
+    public const ENDPOINT = '/v1/business/content/pas';
 
     /** @var string */
     protected string $product_name;

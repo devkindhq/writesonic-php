@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class MetaBlog extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/meta-blog';
+    public const ENDPOINT = '/v1/business/content/meta-blog';
 
     /** @var string */
     protected string $blog_description;

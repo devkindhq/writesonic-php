@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class BlogIdeas extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/blog-ideas';
+    public const ENDPOINT = '/v1/business/content/blog-ideas';
 
     /** @var string */
     protected string $topic;

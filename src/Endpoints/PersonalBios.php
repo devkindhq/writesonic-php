@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class PersonalBios extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/personal-bios';
+    public const ENDPOINT = '/v1/business/content/personal-bios';
 
     /** @var string */
     protected string $name;

@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class ListicleIdeas extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/listicle-ideas';
+    public const ENDPOINT = '/v1/business/content/listicle-ideas';
 
     /** @var string */
     protected string $search_term;

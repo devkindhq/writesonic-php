@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class EmailsV2 extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/emails-v2';
+    public const ENDPOINT = '/v1/business/content/emails-v2';
 
     /** @var string */
     protected string $recipient;

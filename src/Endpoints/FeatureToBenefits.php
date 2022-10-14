@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class FeatureToBenefits extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/feature-to-benefits';
+    public const ENDPOINT = '/v1/business/content/feature-to-benefits';
 
     /** @var string */
     protected string $product_description;

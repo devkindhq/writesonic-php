@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class Analogies extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/analogies';
+    public const ENDPOINT = '/v1/business/content/analogies';
 
     /** @var string */
     protected string $content;

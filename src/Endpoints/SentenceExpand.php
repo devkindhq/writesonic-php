@@ -10,7 +10,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
  */
 final class SentenceExpand extends Endpoint
 {
-    final public const ENDPOINT = '/v1/business/content/sentence-expand';
+    public const ENDPOINT = '/v1/business/content/sentence-expand';
 
     /** @var string */
     protected string $content_to_expand;
