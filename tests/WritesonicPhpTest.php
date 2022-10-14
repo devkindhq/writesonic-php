@@ -11,7 +11,10 @@ use RuntimeException;
 
 final class WritesonicPhpTest extends TestCase
 {
-    public function testWritesonicPhpisInitializedProperly(): void
+    /**
+     * @test
+     */
+    public function writesonic_phpis_initialized_properly(): void
     {
         $object  =  new WritesonicPhp('test');
         $this->assertTrue(get_class($object->GoogleAds) == GoogleAds::class);
@@ -20,7 +23,10 @@ final class WritesonicPhpTest extends TestCase
     }
 
 
-    public function testWritesonicPhpisInitializedProperlyUsingMake(): void
+    /**
+     * @test
+     */
+    public function writesonic_phpis_initialized_properly_using_make(): void
     {
         $object  =  WritesonicPhp::make('test');
         $this->assertTrue(get_class($object->GoogleAds) == GoogleAds::class);
@@ -29,7 +35,10 @@ final class WritesonicPhpTest extends TestCase
     }
 
 
-    public function testWritesonicThrowExceptionInCaseOfInvalidEndpoint(): void
+    /**
+     * @test
+     */
+    public function writesonic_throw_exception_in_case_of_invalid_endpoint(): void
     {
         try {
             $object  =  new WritesonicPhp('Writesonic123');
@@ -39,7 +48,10 @@ final class WritesonicPhpTest extends TestCase
         }
     }
 
-    public function testWritesonicPhpisAbleToMakeCallProperly(): void
+    /**
+     * @test
+     */
+    public function writesonic_phpis_able_to_make_call_properly(): void
     {
         $object  =  new WritesonicPhp('Writesonic123');
         /** @var \Devkind\WritesonicPhp\Endpoints\GoogleAds */
