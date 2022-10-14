@@ -19,6 +19,16 @@ final class WritesonicPhpTest extends TestCase
         $this->assertTrue($object->getRoot() == 'api.writesonic.com');
     }
 
+
+    public function testWritesonicPhpisInitializedProperlyUsingMake(): void
+    {
+        $object  =  WritesonicPhp::make('test');
+        $this->assertTrue(get_class($object->GoogleAds) == GoogleAds::class);
+        $this->assertTrue($object->GoogleAds->getLanguage() == 'en');
+        $this->assertTrue($object->getRoot() == 'api.writesonic.com');
+    }
+
+
     public function testWritesonicThrowExceptionInCaseOfInvalidEndpoint(): void
     {
         try {
