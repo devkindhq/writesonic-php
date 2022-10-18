@@ -12,9 +12,9 @@ interface Languages {
      * @var array
      */
      public const LANGUAGES = [
-            "en" => "english",
+            "en" => "en",
             "nl" => "nl",
-            "fr" => "french",
+            "fr" => "fr",
             "de" => "de",
             "it" => "it",
             "pl" => "pl",

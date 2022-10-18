@@ -5,6 +5,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
 use GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
 use Devkind\WritesonicPhp\Endpoints;
+use Devkind\WritesonicPhp\Languages;
 use Devkind\WritesonicPhp\Writesonic as WritesonicPhp;
 
 
@@ -124,6 +125,9 @@ class Endpoint implements Endpoints
      */
     public function setLanguage($value = 'en')
     {
+        if(!in_array($value, Languages::LANGUAGES)){
+            throw new InvalidArgumentException("Invalid language given, language could be one of ". implode(', ', Languages::LANGUAGES));
+        }
         $this->language = $value;
         return;
     }
@@ -133,6 +137,10 @@ class Endpoint implements Endpoints
      */
     public function setEngine($value = 'economy')
     {
+        if(!in_array($value, ['economy', 'business'])){
+            throw new InvalidArgumentException("Invalid language given, language could be one of ". implode(', ', ['economy', 'business']));
+        }
+
         $this->engine = $value;
         return;
     }
