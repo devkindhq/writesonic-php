@@ -29,7 +29,7 @@ composer require devkind/writesonic-php
 use Devkind\WritesonicPhp;
 
 /** @var \Devkind\WritesonicPhp */
-$object  =  new WritesonicPhp(API_KEY);
+$writesonic  =  new WritesonicPhp(API_KEY);
 ```
 
 alternatively we can initialize static
@@ -38,8 +38,9 @@ alternatively we can initialize static
 ```php
 
 /** @var \Devkind\WritesonicPhp */
-$object  =  \Devkind\WritesonicPhp::make(API_KEY);
+$writesonic  =  \Devkind\WritesonicPhp::make(API_KEY);
 ```
+
 ## Objects / Endpoints:
 Endpoints are basically the type of content that is supported by Writesonic.
 
