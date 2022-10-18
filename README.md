@@ -7,7 +7,7 @@
 WritesonicPhp is a simple SDK implementation of Writesonic API. It helps accessing the API in an object oriented way.
 
 
-### Getting the API key 
+### Getting the API key
 please register an account and request an api key at [Writesonic](https://writesonic.com). <br/> Please check out the tutorials section for more information<br/>   <ul> <li> [Find your API key](../docs/Find%20Api%20Key) </li> <li>  [Test an endpoint](../docs/Test%20An%20Endpoint)</li> </ul>
 
 
@@ -32,7 +32,7 @@ use Devkind\WritesonicPhp;
 $object  =  new WritesonicPhp(API_KEY);
 ```
 
-alternatively we can initialize static 
+alternatively we can initialize static
 
 
 ```php
@@ -40,9 +40,61 @@ alternatively we can initialize static
 /** @var \Devkind\WritesonicPhp */
 $object  =  \Devkind\WritesonicPhp::make(API_KEY);
 ```
+## Objects / Endpoints:
+Endpoints are basically the type of content that is supported by Writesonic.
+
+Each endpoint requireds an `$engine` and `$language` parameter to query from writesonic.
+
+```
+    /** @var string $language */
+    protected $language = 'en';
+
+    /** @var string $engine */
+    protected $engine = 'economy';
+
+```
+
+it supports following engines :
+> economy, business
+
+and it supports following languages :
+> en, nl, fr, de, it, pl, es, pt-pt, pt-br, ru, ja, zh, bg, cs, da, el, hu, lt, lv, ro, sk, sl, sv, fi, et
 
 
-## Supported Objects / Endpoints:
+in order to change the language or engine we can call the setter methods, which is available on all the endpoints.
+
+
+to set the language
+
+```php
+/** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
+$endpoint = $writesonic->GenerateImage->setLanguage('br');
+
+```
+
+to set the engine
+
+```php
+/** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
+$endpoint = $writesonic->GenerateImage->setEngine('business');
+
+```
+
+
+alternatively:
+
+
+```php
+/** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
+$endpoint = $writesonic->GenerateImage->setEngine('br')->setLanguage('br');
+
+```
+
+
+
+
+
+### Supported Objects / Endpoints:
  - [generate-image](#generate-image)
  - [google-ads](#google-ads)
  - [google-ad-titles](#google-ad-titles)
@@ -121,8 +173,8 @@ $object  =  \Devkind\WritesonicPhp::make(API_KEY);
  - [youtube-intros-v2](#youtube-intros-v2)
  - [youtube-descriptions-v2](#youtube-descriptions-v2)
  - [review-generator](#review-generator)
- 
- 
+
+
 #### Generate Image
 
 >

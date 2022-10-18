@@ -118,4 +118,22 @@ class Endpoint implements Endpoints
     {
         return $this->engine;
     }
+
+    /**
+     * Set the value of language
+     */
+    public function setLanguage($value = 'en')
+    {
+        $this->language = $value;
+        return;
+    }
+
+    /**
+     * set the value of engine
+     */
+    public function setEngine($value = 'economy')
+    {
+        $this->engine = $value;
+        return;
+    }
 }
