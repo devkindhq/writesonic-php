@@ -12,6 +12,17 @@ final class ProductDescriptions extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/product-descriptions';
 
+    public const PARAMS = [
+        'product_name',
+        'product_characteristics',
+        'primary_keyword',
+        'secondary_keyword',
+        'tone_of_voice',
+    ];
+
+    /** @var array */
+    protected array $payload =[];
+
     /** @var string */
     protected string $product_name;
 
@@ -29,8 +40,6 @@ final class ProductDescriptions extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(
         string $product_name,
@@ -44,7 +53,7 @@ final class ProductDescriptions extends Endpoint
         $this->primary_keyword = $primary_keyword;
         $this->secondary_keyword = $secondary_keyword;
         $this->tone_of_voice = $tone_of_voice;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -58,6 +67,17 @@ final class ProductDescriptions extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductName(string $value): self
+    {
+        $this->product_name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor product_characteristics attribute
      *
      * @return string
@@ -65,6 +85,17 @@ final class ProductDescriptions extends Endpoint
     public function getProductCharacteristics(): string
     {
         return $this->product_characteristics;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductCharacteristics(string $value): self
+    {
+        $this->product_characteristics = $value;
+        return $this;
     }
 
     /**
@@ -78,6 +109,17 @@ final class ProductDescriptions extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPrimaryKeyword(string $value): self
+    {
+        $this->primary_keyword = $value;
+        return $this;
+    }
+
+    /**
      * Accessor secondary_keyword attribute
      *
      * @return string
@@ -85,6 +127,17 @@ final class ProductDescriptions extends Endpoint
     public function getSecondaryKeyword(): string
     {
         return $this->secondary_keyword;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setSecondaryKeyword(string $value): self
+    {
+        $this->secondary_keyword = $value;
+        return $this;
     }
 
     /**
@@ -98,18 +151,74 @@ final class ProductDescriptions extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setToneOfVoice(string $value): self
+    {
+        $this->tone_of_voice = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "product_name" => $this->getProductName(),
-            "product_characteristics" => $this->getProductCharacteristics(),
-            "primary_keyword" => $this->getPrimaryKeyword(),
-            "secondary_keyword" => $this->getSecondaryKeyword(),
-            "tone_of_voice" => $this->getToneOfVoice(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "product_name" => $this->getProductName(),
+                 "product_characteristics" => $this->getProductCharacteristics(),
+                 "primary_keyword" => $this->getPrimaryKeyword(),
+                 "secondary_keyword" => $this->getSecondaryKeyword(),
+                 "tone_of_voice" => $this->getToneOfVoice(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

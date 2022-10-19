@@ -144,4 +144,31 @@ class Endpoint implements Endpoints
         $this->engine = $value;
         return;
     }
+
+    public function get(?array $payload = [])
+    {
+        $payload = count($payload) == 0 ? $this->payload : $payload;
+        $payload = count($payload) == 0 ? json_decode($this->toString(), true) : $payload;
+        
+        if (is_null($payload) || count($payload) == 0) {
+            throw new \InvalidArgumentException("Payload is required to make a call.");
+        }
+        
+        if (count(array_intersect_key(array_flip($this->getRequiredParameters()), $payload)) !== count($this->getRequiredParameters())) {
+            throw new \InvalidArgumentException(implode(",", array_diff($this->getRequiredParameters(), array_keys($payload))) . "are missing in the payload");
+        }
+
+        $this->request($this->getEndpoint(), json_encode($payload));
+    }
+
+    /**
+     * JSON representation of this endpoint
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return json_encode($this->toArray(), true);
+    }
+
 }

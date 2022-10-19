@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class EmailsV2 extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/emails-v2';
+    public const PARAMS = ['recipient', 'recipient_position', 'description'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $recipient;
@@ -23,15 +27,13 @@ final class EmailsV2 extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $recipient, string $recipient_position, string $description)
     {
         $this->recipient = $recipient;
         $this->recipient_position = $recipient_position;
         $this->description = $description;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -45,6 +47,17 @@ final class EmailsV2 extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setRecipient(string $value): self
+    {
+        $this->recipient = $value;
+        return $this;
+    }
+
+    /**
      * Accessor recipient_position attribute
      *
      * @return string
@@ -52,6 +65,17 @@ final class EmailsV2 extends Endpoint
     public function getRecipientPosition(): string
     {
         return $this->recipient_position;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setRecipientPosition(string $value): self
+    {
+        $this->recipient_position = $value;
+        return $this;
     }
 
     /**
@@ -65,16 +89,72 @@ final class EmailsV2 extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setDescription(string $value): self
+    {
+        $this->description = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "recipient" => $this->getRecipient(),
-            "recipient_position" => $this->getRecipientPosition(),
-            "description" => $this->getDescription(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "recipient" => $this->getRecipient(),
+                 "recipient_position" => $this->getRecipientPosition(),
+                 "description" => $this->getDescription(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class LinkedinAdHeadlines extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/linkedin-ad-headlines';
+    public const PARAMS = ['product_name', 'product_description', 'target_keywords', 'promotion'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $product_name;
@@ -26,8 +30,6 @@ final class LinkedinAdHeadlines extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(
         string $product_name,
@@ -39,7 +41,7 @@ final class LinkedinAdHeadlines extends Endpoint
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
         $this->promotion = $promotion;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -53,6 +55,17 @@ final class LinkedinAdHeadlines extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductName(string $value): self
+    {
+        $this->product_name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor product_description attribute
      *
      * @return string
@@ -60,6 +73,17 @@ final class LinkedinAdHeadlines extends Endpoint
     public function getProductDescription(): string
     {
         return $this->product_description;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductDescription(string $value): self
+    {
+        $this->product_description = $value;
+        return $this;
     }
 
     /**
@@ -73,6 +97,17 @@ final class LinkedinAdHeadlines extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setTargetKeywords(string $value): self
+    {
+        $this->target_keywords = $value;
+        return $this;
+    }
+
+    /**
      * Accessor promotion attribute
      *
      * @return string
@@ -83,17 +118,73 @@ final class LinkedinAdHeadlines extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPromotion(string $value): self
+    {
+        $this->promotion = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "product_name" => $this->getProductName(),
-            "product_description" => $this->getProductDescription(),
-            "target_keywords" => $this->getTargetKeywords(),
-            "promotion" => $this->getPromotion(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "product_name" => $this->getProductName(),
+                 "product_description" => $this->getProductDescription(),
+                 "target_keywords" => $this->getTargetKeywords(),
+                 "promotion" => $this->getPromotion(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

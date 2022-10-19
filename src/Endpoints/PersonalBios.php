@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class PersonalBios extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/personal-bios';
+    public const PARAMS = ['name', 'personal_info', 'tone_of_voice'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $name;
@@ -23,15 +27,13 @@ final class PersonalBios extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $name, string $personal_info, string $tone_of_voice)
     {
         $this->name = $name;
         $this->personal_info = $personal_info;
         $this->tone_of_voice = $tone_of_voice;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -45,6 +47,17 @@ final class PersonalBios extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setName(string $value): self
+    {
+        $this->name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor personal_info attribute
      *
      * @return string
@@ -52,6 +65,17 @@ final class PersonalBios extends Endpoint
     public function getPersonalInfo(): string
     {
         return $this->personal_info;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPersonalInfo(string $value): self
+    {
+        $this->personal_info = $value;
+        return $this;
     }
 
     /**
@@ -65,16 +89,72 @@ final class PersonalBios extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setToneOfVoice(string $value): self
+    {
+        $this->tone_of_voice = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "name" => $this->getName(),
-            "personal_info" => $this->getPersonalInfo(),
-            "tone_of_voice" => $this->getToneOfVoice(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "name" => $this->getName(),
+                 "personal_info" => $this->getPersonalInfo(),
+                 "tone_of_voice" => $this->getToneOfVoice(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

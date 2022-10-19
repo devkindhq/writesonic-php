@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class CompanyVision extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/company-vision';
+    public const PARAMS = ['company_name', 'company_description'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $company_name;
@@ -20,14 +24,12 @@ final class CompanyVision extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $company_name, string $company_description)
     {
         $this->company_name = $company_name;
         $this->company_description = $company_description;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -41,6 +43,17 @@ final class CompanyVision extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setCompanyName(string $value): self
+    {
+        $this->company_name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor company_description attribute
      *
      * @return string
@@ -51,15 +64,71 @@ final class CompanyVision extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setCompanyDescription(string $value): self
+    {
+        $this->company_description = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "company_name" => $this->getCompanyName(),
-            "company_description" => $this->getCompanyDescription(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "company_name" => $this->getCompanyName(),
+                 "company_description" => $this->getCompanyDescription(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

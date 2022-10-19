@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class ShortPressReleases extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/short-press-releases';
+    public const PARAMS = ['information', 'product_name', 'target_keyword', 'tone_of_voice'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $information;
@@ -26,8 +30,6 @@ final class ShortPressReleases extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $information, string $product_name, string $target_keyword, string $tone_of_voice)
     {
@@ -35,7 +37,7 @@ final class ShortPressReleases extends Endpoint
         $this->product_name = $product_name;
         $this->target_keyword = $target_keyword;
         $this->tone_of_voice = $tone_of_voice;
-        return $this->request(self::ENDPOINT, $this->toString());
+        $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
@@ -49,6 +51,17 @@ final class ShortPressReleases extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setInformation(string $value): self
+    {
+        $this->information = $value;
+        return $this;
+    }
+
+    /**
      * Accessor product_name attribute
      *
      * @return string
@@ -56,6 +69,17 @@ final class ShortPressReleases extends Endpoint
     public function getProductName(): string
     {
         return $this->product_name;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductName(string $value): self
+    {
+        $this->product_name = $value;
+        return $this;
     }
 
     /**
@@ -69,6 +93,17 @@ final class ShortPressReleases extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setTargetKeyword(string $value): self
+    {
+        $this->target_keyword = $value;
+        return $this;
+    }
+
+    /**
      * Accessor tone_of_voice attribute
      *
      * @return string
@@ -79,17 +114,73 @@ final class ShortPressReleases extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setToneOfVoice(string $value): self
+    {
+        $this->tone_of_voice = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "information" => $this->getInformation(),
-            "product_name" => $this->getProductName(),
-            "target_keyword" => $this->getTargetKeyword(),
-            "tone_of_voice" => $this->getToneOfVoice(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "information" => $this->getInformation(),
+                 "product_name" => $this->getProductName(),
+                 "target_keyword" => $this->getTargetKeyword(),
+                 "tone_of_voice" => $this->getToneOfVoice(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }
