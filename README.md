@@ -157,7 +157,7 @@ If you discover any security related issues, please email backend@devkind.com.au
 ## Credits
 
 - [Devkind Developer](https://github.com/devkindhq)
-- [Devkind](https://devkind.com.au)
+- [Devkind Developer]
 - [All Contributors](../../contributors)
 
 ## License
