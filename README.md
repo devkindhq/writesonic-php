@@ -134,10 +134,9 @@ $endpoint = $writesonic->GoogleAds->get([
 
 ### Supported Objects / Endpoints:
 
-#### [Click here ](https://github.com/devkindhq/writesonic-php/blob/main/endpoints.md) to view the entire documentation of supported endpoints
+##### [Click here ](https://github.com/devkindhq/writesonic-php/blob/main/endpoints.md) to view the entire documentation of supported endpoints
 
-
-```### Testing
+### Testing
 
 ```bash
 composer test
