@@ -1,12 +1,16 @@
 # PHP client to communicate with WriteSonic API
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
 ![GitHub Actions](https://github.com/devkind-au/writesonic-php/actions/workflows/main.yml/badge.svg)
 
 WritesonicPhp is a simple SDK implementation of Writesonic API. It helps accessing the API in an object oriented way.
 
-### Getting the API key
 
-please register an account and request an api key at [Writesonic](https://writesonic.com). `<br/>` Please check out the tutorials section for more information`<br/>`   `<ul>` `<li>` [Find your API key](../docs/Find%20Api%20Key) `</li>` `<li>`  [Test an endpoint](../docs/Test%20An%20Endpoint)`</li>` `</ul>`
+### Getting the API key
+please register an account and request an api key at [Writesonic](https://writesonic.com). <br/> Please check out the tutorials section for more information<br/>   <ul> <li> [Find your API key](../docs/Find%20Api%20Key) </li> <li>  [Test an endpoint](../docs/Test%20An%20Endpoint)</li> </ul>
+
+
 
 ## Installation
 
@@ -21,6 +25,7 @@ composer require devkind/writesonic-php
 ### Initialization:
 
 ```php
+
 use Devkind\WritesonicPhp;
 
 /** @var \Devkind\WritesonicPhp */
@@ -29,40 +34,43 @@ $writesonic  =  new WritesonicPhp(API_KEY);
 
 alternatively we can initialize static
 
+
 ```php
+
 /** @var \Devkind\WritesonicPhp */
 $writesonic  =  \Devkind\WritesonicPhp::make(API_KEY);
 ```
 
-## Objects / Endpoints:
-
+## Endpoint:
 Endpoints are basically the type of content that is supported by Writesonic.
 
 Each endpoint requireds an `$engine` and `$language` parameter to query from writesonic.
 
 ```
-/** @var string $language */
+    /** @var string $language */
     protected $language = 'en';
 
     /** @var string $engine */
     protected $engine = 'economy';
+
 ```
 
 it supports following engines :
-
 > economy, business
 
 and it supports following languages :
-
 > en, nl, fr, de, it, pl, es, pt-pt, pt-br, ru, ja, zh, bg, cs, da, el, hu, lt, lv, ro, sk, sl, sv, fi, et
 
+
 in order to change the language or engine we can call the setter methods, which is available on all the endpoints.
+
 
 to set the language
 
 ```php
 /** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
 $endpoint = $writesonic->GenerateImage->setLanguage('br');
+
 ```
 
 to set the engine
@@ -70,14 +78,23 @@ to set the engine
 ```php
 /** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
 $endpoint = $writesonic->GenerateImage->setEngine('business');
+
 ```
 
+
 alternatively:
+
 
 ```php
 /** @var \Devkind\WritesonicPhp\Endpoints\GenerateImage */
 $endpoint = $writesonic->GenerateImage->setEngine('br')->setLanguage('br');
+
 ```
+
+
+
+
+### Supported Objects / Endpoints and Usage detail:
 
 All the endpoints can be  called into three different ways
 
@@ -132,16 +149,18 @@ $endpoint = $writesonic->GoogleAds->get([
 ]);
 ```
 
-### Supported Objects / Endpoints:
 
-#### [Click here ](https://github.com/devkindhq/writesonic-php/blob/main/endpoints.md) to view the entire documentation of supported endpoints
+##### [Click here ](https://github.com/devkindhq/writesonic-php/blob/main/endpoints.md) to view the entire documentation of supported endpoints
 
 
-```### Testing
+
+
+### Testing
 
 ```bash
 composer test
 ```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -156,9 +175,8 @@ If you discover any security related issues, please email backend@devkind.com.au
 
 ## Credits
 
-- [Devkind Developer](https://github.com/devkindhq)
-- [Devkind Developer]
-- [All Contributors](../../contributors)
+-   [Devkind Developer](https://github.com/devkind-au-au)
+-   [All Contributors](../../contributors)
 
 ## License
 
