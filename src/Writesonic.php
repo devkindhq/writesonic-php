@@ -21,7 +21,7 @@ class Writesonic extends Client implements Endpoints
     protected $root = '';
 
     /**
-     * Machship constructor.
+     * Writesonic constructor.
      *
      * @param string $token
      * @param string $root
@@ -46,7 +46,7 @@ class Writesonic extends Client implements Endpoints
      * @param string $root
      * @param string $token
      *
-     * @return Machship
+     * @return Writesonic
      */
     public static function make($token, $base = 'v1')
     {
