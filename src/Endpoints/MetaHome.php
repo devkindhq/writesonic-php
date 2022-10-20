@@ -41,7 +41,7 @@ final class MetaHome extends Endpoint
         $this->product_description = $product_description;
         $this->search_term = $search_term;
         $this->primary_keyword = $primary_keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

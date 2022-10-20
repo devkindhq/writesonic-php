@@ -37,7 +37,7 @@ final class ColdEmails extends Endpoint
         $this->to = $to;
         $this->goal = $goal;
         $this->scenario = $scenario;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

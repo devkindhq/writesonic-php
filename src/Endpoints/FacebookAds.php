@@ -37,7 +37,7 @@ final class FacebookAds extends Endpoint
         $this->product_description = $product_description;
         $this->occasion = $occasion;
         $this->promotion = $promotion;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

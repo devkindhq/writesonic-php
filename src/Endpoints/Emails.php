@@ -25,7 +25,7 @@ final class Emails extends Endpoint
     public function generate(string $key_points)
     {
         $this->key_points = $key_points;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -29,7 +29,7 @@ final class LandingPageHeadlines extends Endpoint
     {
         $this->product_name = $product_name;
         $this->product_description = $product_description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

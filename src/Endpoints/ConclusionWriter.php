@@ -25,7 +25,7 @@ final class ConclusionWriter extends Endpoint
     public function generate(string $article)
     {
         $this->article = $article;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

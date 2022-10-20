@@ -25,7 +25,7 @@ final class KeywordExtract extends Endpoint
     public function generate(string $content)
     {
         $this->content = $content;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

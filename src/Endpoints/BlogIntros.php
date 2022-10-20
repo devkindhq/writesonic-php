@@ -25,7 +25,7 @@ final class BlogIntros extends Endpoint
     public function generate(string $blog_title)
     {
         $this->blog_title = $blog_title;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

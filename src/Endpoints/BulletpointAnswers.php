@@ -25,7 +25,7 @@ final class BulletpointAnswers extends Endpoint
     public function generate(string $question)
     {
         $this->question = $question;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

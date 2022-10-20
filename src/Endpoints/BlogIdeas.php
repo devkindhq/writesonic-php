@@ -29,7 +29,7 @@ final class BlogIdeas extends Endpoint
     {
         $this->topic = $topic;
         $this->primary_keyword = $primary_keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

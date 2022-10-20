@@ -33,7 +33,7 @@ final class PersonalBios extends Endpoint
         $this->name = $name;
         $this->personal_info = $personal_info;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

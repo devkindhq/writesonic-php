@@ -71,7 +71,7 @@ final class RealEstateListing extends Endpoint
         $this->kitchen = $kitchen;
         $this->bathroom = $bathroom;
         $this->additional_features = $additional_features;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

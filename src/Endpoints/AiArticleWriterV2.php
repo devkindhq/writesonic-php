@@ -33,7 +33,7 @@ final class AiArticleWriterV2 extends Endpoint
         $this->article_title = $article_title;
         $this->article_intro = $article_intro;
         $this->article_sections = $article_sections;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

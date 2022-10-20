@@ -29,7 +29,7 @@ final class LyricsGenerator extends Endpoint
     {
         $this->topic = $topic;
         $this->genre = $genre;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

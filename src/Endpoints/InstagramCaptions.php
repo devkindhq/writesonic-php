@@ -29,7 +29,7 @@ final class InstagramCaptions extends Endpoint
     {
         $this->description = $description;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

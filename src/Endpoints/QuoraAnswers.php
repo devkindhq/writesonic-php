@@ -29,7 +29,7 @@ final class QuoraAnswers extends Endpoint
     {
         $this->question = $question;
         $this->info = $info;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

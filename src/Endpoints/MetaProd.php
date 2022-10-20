@@ -46,7 +46,7 @@ final class MetaProd extends Endpoint
         $this->search_term = $search_term;
         $this->company_name = $company_name;
         $this->primary_keyword = $primary_keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

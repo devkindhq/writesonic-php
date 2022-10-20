@@ -25,7 +25,7 @@ final class ProsAndCons extends Endpoint
     public function generate(string $paragraph)
     {
         $this->paragraph = $paragraph;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

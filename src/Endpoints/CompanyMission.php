@@ -29,7 +29,7 @@ final class CompanyMission extends Endpoint
     {
         $this->company_name = $company_name;
         $this->company_description = $company_description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

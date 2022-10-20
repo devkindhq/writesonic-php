@@ -37,7 +37,7 @@ final class GenerateImage extends Endpoint
         $this->num_images = $num_images;
         $this->image_width = $image_width;
         $this->image_height = $image_height;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

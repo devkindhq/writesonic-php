@@ -29,7 +29,7 @@ final class RewriteWithKeywords extends Endpoint
     {
         $this->article = $article;
         $this->keywords = $keywords;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

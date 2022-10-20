@@ -25,7 +25,7 @@ final class Aida extends Endpoint
     public function generate(string $product_description)
     {
         $this->product_description = $product_description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

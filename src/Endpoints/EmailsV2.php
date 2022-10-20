@@ -33,7 +33,7 @@ final class EmailsV2 extends Endpoint
         $this->recipient = $recipient;
         $this->recipient_position = $recipient_position;
         $this->description = $description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

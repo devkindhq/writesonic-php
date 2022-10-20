@@ -29,7 +29,7 @@ final class FeatureToBenefits extends Endpoint
     {
         $this->product_description = $product_description;
         $this->feature = $feature;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

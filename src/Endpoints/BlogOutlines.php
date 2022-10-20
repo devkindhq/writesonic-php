@@ -29,7 +29,7 @@ final class BlogOutlines extends Endpoint
     {
         $this->blog_title = $blog_title;
         $this->blog_intro = $blog_intro;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

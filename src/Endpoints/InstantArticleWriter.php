@@ -25,7 +25,7 @@ final class InstantArticleWriter extends Endpoint
     public function generate(string $article_title)
     {
         $this->article_title = $article_title;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

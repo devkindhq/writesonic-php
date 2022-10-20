@@ -29,7 +29,7 @@ final class SubjectLines extends Endpoint
     {
         $this->product = $product;
         $this->description = $description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

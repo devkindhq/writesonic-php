@@ -29,7 +29,7 @@ final class YoutubeHooks extends Endpoint
     {
         $this->video_title = $video_title;
         $this->tone = $tone;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

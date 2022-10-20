@@ -25,7 +25,7 @@ final class DefineThis extends Endpoint
     public function generate(string $keyword)
     {
         $this->keyword = $keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -37,7 +37,7 @@ final class ShortPressReleases extends Endpoint
         $this->product_name = $product_name;
         $this->target_keyword = $target_keyword;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

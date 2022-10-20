@@ -33,7 +33,7 @@ final class GoogleAdTitlesV2 extends Endpoint
         $this->company_name = $company_name;
         $this->description = $description;
         $this->keyword = $keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

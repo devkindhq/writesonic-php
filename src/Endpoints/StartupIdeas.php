@@ -21,7 +21,7 @@ final class StartupIdeas extends Endpoint
      */
     public function generate()
     {
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

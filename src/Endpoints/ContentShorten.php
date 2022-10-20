@@ -25,7 +25,7 @@ final class ContentShorten extends Endpoint
     public function generate(string $content_to_shorten)
     {
         $this->content_to_shorten = $content_to_shorten;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

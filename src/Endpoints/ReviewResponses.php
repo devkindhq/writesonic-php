@@ -41,7 +41,7 @@ final class ReviewResponses extends Endpoint
         $this->company = $company;
         $this->contact = $contact;
         $this->user = $user;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

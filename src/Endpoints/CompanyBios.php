@@ -33,7 +33,7 @@ final class CompanyBios extends Endpoint
         $this->company_name = $company_name;
         $this->company_info = $company_info;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

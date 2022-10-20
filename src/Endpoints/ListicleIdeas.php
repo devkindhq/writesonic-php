@@ -25,7 +25,7 @@ final class ListicleIdeas extends Endpoint
     public function generate(string $search_term)
     {
         $this->search_term = $search_term;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

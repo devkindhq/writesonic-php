@@ -29,7 +29,7 @@ final class Summary extends Endpoint
     {
         $this->article_url = $article_url;
         $this->article_text = $article_text;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -33,7 +33,7 @@ final class GoogleAds extends Endpoint
         $this->product_name = $product_name;
         $this->product_description = $product_description;
         $this->search_term = $search_term;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

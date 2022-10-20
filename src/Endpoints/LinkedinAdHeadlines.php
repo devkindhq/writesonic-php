@@ -41,7 +41,7 @@ final class LinkedinAdHeadlines extends Endpoint
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
         $this->promotion = $promotion;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

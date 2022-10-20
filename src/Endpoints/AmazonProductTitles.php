@@ -33,7 +33,7 @@ final class AmazonProductTitles extends Endpoint
         $this->product_name = $product_name;
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

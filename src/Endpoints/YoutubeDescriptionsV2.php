@@ -29,7 +29,7 @@ final class YoutubeDescriptionsV2 extends Endpoint
     {
         $this->video_title = $video_title;
         $this->keywords = $keywords;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

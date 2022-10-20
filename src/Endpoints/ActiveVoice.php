@@ -25,7 +25,7 @@ final class ActiveVoice extends Endpoint
     public function generate(string $sentence)
     {
         $this->sentence = $sentence;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

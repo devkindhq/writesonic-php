@@ -41,7 +41,7 @@ final class GrowthIdeas extends Endpoint
         $this->product_description = $product_description;
         $this->target_keywords = $target_keywords;
         $this->target_audience = $target_audience;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

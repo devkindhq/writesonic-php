@@ -25,7 +25,7 @@ final class ParagraphWriter extends Endpoint
     public function generate(string $paragraph_title)
     {
         $this->paragraph_title = $paragraph_title;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

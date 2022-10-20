@@ -41,7 +41,7 @@ final class GoogleAdTitles extends Endpoint
         $this->product_description = $product_description;
         $this->primary_keyword = $primary_keyword;
         $this->secondary_keywords = $secondary_keywords;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

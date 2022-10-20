@@ -33,7 +33,7 @@ final class YoutubeIntrosV2 extends Endpoint
         $this->video_title = $video_title;
         $this->hook = $hook;
         $this->tone = $tone;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

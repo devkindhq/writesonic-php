@@ -33,7 +33,7 @@ final class YoutubeIntros extends Endpoint
         $this->video_title = $video_title;
         $this->search_term = $search_term;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

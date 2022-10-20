@@ -29,7 +29,7 @@ final class GoogleAdDescriptionsV2 extends Endpoint
     {
         $this->name = $name;
         $this->details = $details;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

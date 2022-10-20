@@ -46,7 +46,7 @@ final class LandingPages extends Endpoint
         $this->feature_1 = $feature_1;
         $this->feature_2 = $feature_2;
         $this->feature_3 = $feature_3;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

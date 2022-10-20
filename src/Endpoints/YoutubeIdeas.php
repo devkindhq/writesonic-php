@@ -33,7 +33,7 @@ final class YoutubeIdeas extends Endpoint
         $this->video_topic = $video_topic;
         $this->search_term = $search_term;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

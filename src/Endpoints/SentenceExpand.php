@@ -29,7 +29,7 @@ final class SentenceExpand extends Endpoint
     {
         $this->content_to_expand = $content_to_expand;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

@@ -53,7 +53,7 @@ final class ProductDescriptions extends Endpoint
         $this->primary_keyword = $primary_keyword;
         $this->secondary_keyword = $secondary_keyword;
         $this->tone_of_voice = $tone_of_voice;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

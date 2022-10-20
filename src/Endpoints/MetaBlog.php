@@ -37,7 +37,7 @@ final class MetaBlog extends Endpoint
         $this->search_term = $search_term;
         $this->blog_title = $blog_title;
         $this->primary_keyword = $primary_keyword;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**

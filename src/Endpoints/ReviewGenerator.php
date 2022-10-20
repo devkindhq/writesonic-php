@@ -33,7 +33,7 @@ final class ReviewGenerator extends Endpoint
         $this->product_name = $product_name;
         $this->experience = $experience;
         $this->description = $description;
-        $this->request(self::ENDPOINT, $this->toString());
+        return $this->request(self::ENDPOINT, $this->toString());
     }
 
     /**
