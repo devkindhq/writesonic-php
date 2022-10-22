@@ -158,7 +158,7 @@ class Endpoint implements Endpoints
             throw new \InvalidArgumentException(implode(",", array_diff($this->getRequiredParameters(), array_keys($payload))) . "are missing in the payload");
         }
 
-        $this->request($this->getEndpoint(), json_encode($payload));
+        return $this->request($this->getEndpoint(), json_encode($payload));
     }
 
     /**
