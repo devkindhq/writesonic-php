@@ -5,6 +5,7 @@ namespace Devkind\WritesonicPhp\Endpoints;
 use GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
 use Devkind\WritesonicPhp\Endpoints;
+use Devkind\WritesonicPhp\Languages;
 use Devkind\WritesonicPhp\Writesonic as WritesonicPhp;
 
 
@@ -124,6 +125,9 @@ class Endpoint implements Endpoints
      */
     public function setLanguage($value = 'en')
     {
+        if(!in_array($value, Languages::LANGUAGES)){
+            throw new InvalidArgumentException("Invalid language given, language could be one of ". implode(', ', Languages::LANGUAGES));
+        }
         $this->language = $value;
         return;
     }
@@ -133,7 +137,38 @@ class Endpoint implements Endpoints
      */
     public function setEngine($value = 'economy')
     {
+        if(!in_array($value, ['economy', 'business'])){
+            throw new InvalidArgumentException("Invalid language given, language could be one of ". implode(', ', ['economy', 'business']));
+        }
+
         $this->engine = $value;
         return;
     }
+
+    public function get(?array $payload = [])
+    {
+        $payload = count($payload) == 0 ? $this->payload : $payload;
+        $payload = count($payload) == 0 ? json_decode($this->toString(), true) : $payload;
+        
+        if (is_null($payload) || count($payload) == 0) {
+            throw new \InvalidArgumentException("Payload is required to make a call.");
+        }
+        
+        if (count(array_intersect_key(array_flip($this->getRequiredParameters()), $payload)) !== count($this->getRequiredParameters())) {
+            throw new \InvalidArgumentException(implode(",", array_diff($this->getRequiredParameters(), array_keys($payload))) . "are missing in the payload");
+        }
+
+        return $this->request($this->getEndpoint(), json_encode($payload));
+    }
+
+    /**
+     * JSON representation of this endpoint
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return json_encode($this->toArray(), true);
+    }
+
 }

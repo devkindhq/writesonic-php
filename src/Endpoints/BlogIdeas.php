@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class BlogIdeas extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/blog-ideas';
+    public const PARAMS = ['topic', 'primary_keyword'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $topic;
@@ -20,8 +24,6 @@ final class BlogIdeas extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $topic, string $primary_keyword)
     {
@@ -41,6 +43,17 @@ final class BlogIdeas extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setTopic(string $value): self
+    {
+        $this->topic = $value;
+        return $this;
+    }
+
+    /**
      * Accessor primary_keyword attribute
      *
      * @return string
@@ -51,15 +64,71 @@ final class BlogIdeas extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPrimaryKeyword(string $value): self
+    {
+        $this->primary_keyword = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "topic" => $this->getTopic(),
-            "primary_keyword" => $this->getPrimaryKeyword(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "topic" => $this->getTopic(),
+                 "primary_keyword" => $this->getPrimaryKeyword(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

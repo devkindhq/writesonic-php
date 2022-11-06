@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class YoutubeTitles extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/youtube-titles';
+    public const PARAMS = ['video_description', 'search_term', 'tone_of_voice'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $video_description;
@@ -23,8 +27,6 @@ final class YoutubeTitles extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $video_description, string $search_term, string $tone_of_voice)
     {
@@ -45,6 +47,17 @@ final class YoutubeTitles extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setVideoDescription(string $value): self
+    {
+        $this->video_description = $value;
+        return $this;
+    }
+
+    /**
      * Accessor search_term attribute
      *
      * @return string
@@ -52,6 +65,17 @@ final class YoutubeTitles extends Endpoint
     public function getSearchTerm(): string
     {
         return $this->search_term;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setSearchTerm(string $value): self
+    {
+        $this->search_term = $value;
+        return $this;
     }
 
     /**
@@ -65,16 +89,72 @@ final class YoutubeTitles extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setToneOfVoice(string $value): self
+    {
+        $this->tone_of_voice = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "video_description" => $this->getVideoDescription(),
-            "search_term" => $this->getSearchTerm(),
-            "tone_of_voice" => $this->getToneOfVoice(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "video_description" => $this->getVideoDescription(),
+                 "search_term" => $this->getSearchTerm(),
+                 "tone_of_voice" => $this->getToneOfVoice(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

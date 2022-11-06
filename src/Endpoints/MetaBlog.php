@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class MetaBlog extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/meta-blog';
+    public const PARAMS = ['blog_description', 'search_term', 'blog_title', 'primary_keyword'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $blog_description;
@@ -26,8 +30,6 @@ final class MetaBlog extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $blog_description, string $search_term, string $blog_title, string $primary_keyword)
     {
@@ -49,6 +51,17 @@ final class MetaBlog extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setBlogDescription(string $value): self
+    {
+        $this->blog_description = $value;
+        return $this;
+    }
+
+    /**
      * Accessor search_term attribute
      *
      * @return string
@@ -56,6 +69,17 @@ final class MetaBlog extends Endpoint
     public function getSearchTerm(): string
     {
         return $this->search_term;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setSearchTerm(string $value): self
+    {
+        $this->search_term = $value;
+        return $this;
     }
 
     /**
@@ -69,6 +93,17 @@ final class MetaBlog extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setBlogTitle(string $value): self
+    {
+        $this->blog_title = $value;
+        return $this;
+    }
+
+    /**
      * Accessor primary_keyword attribute
      *
      * @return string
@@ -79,17 +114,73 @@ final class MetaBlog extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPrimaryKeyword(string $value): self
+    {
+        $this->primary_keyword = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "blog_description" => $this->getBlogDescription(),
-            "search_term" => $this->getSearchTerm(),
-            "blog_title" => $this->getBlogTitle(),
-            "primary_keyword" => $this->getPrimaryKeyword(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "blog_description" => $this->getBlogDescription(),
+                 "search_term" => $this->getSearchTerm(),
+                 "blog_title" => $this->getBlogTitle(),
+                 "primary_keyword" => $this->getPrimaryKeyword(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

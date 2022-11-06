@@ -2,8 +2,6 @@
 
 namespace Devkind\WritesonicPhp;
 
-use Devkind\WritesonicPhp\Models\AbstractModel;
-
 /**
  * Class Util.
  */
@@ -156,25 +154,6 @@ class Util
         return $domain;
     }
 
-    /**
-     * @param int|string|array|\stdClass|AbstractModel $mixed
-     *
-     * @return int|null
-     */
-    public static function getKeyFromMixed($mixed)
-    {
-        if (is_numeric($mixed)) {
-            return $mixed;
-        } elseif (is_array($mixed) && isset($mixed['id'])) {
-            return $mixed['id'];
-        } elseif ($mixed instanceof \stdClass && isset($mixed->id)) {
-            return $mixed->id;
-        } elseif ($mixed instanceof AbstractModel) {
-            return $mixed->getKey();
-        } else {
-            return;
-        }
-    }
 
     /**
      * Get Id From Url

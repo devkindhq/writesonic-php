@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class FacebookAds extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/facebook-ads';
+    public const PARAMS = ['product_name', 'product_description', 'occasion', 'promotion'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $product_name;
@@ -26,8 +30,6 @@ final class FacebookAds extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $product_name, string $product_description, string $occasion, string $promotion)
     {
@@ -49,6 +51,17 @@ final class FacebookAds extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductName(string $value): self
+    {
+        $this->product_name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor product_description attribute
      *
      * @return string
@@ -56,6 +69,17 @@ final class FacebookAds extends Endpoint
     public function getProductDescription(): string
     {
         return $this->product_description;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductDescription(string $value): self
+    {
+        $this->product_description = $value;
+        return $this;
     }
 
     /**
@@ -69,6 +93,17 @@ final class FacebookAds extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setOccasion(string $value): self
+    {
+        $this->occasion = $value;
+        return $this;
+    }
+
+    /**
      * Accessor promotion attribute
      *
      * @return string
@@ -79,17 +114,73 @@ final class FacebookAds extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPromotion(string $value): self
+    {
+        $this->promotion = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "product_name" => $this->getProductName(),
-            "product_description" => $this->getProductDescription(),
-            "occasion" => $this->getOccasion(),
-            "promotion" => $this->getPromotion(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "product_name" => $this->getProductName(),
+                 "product_description" => $this->getProductDescription(),
+                 "occasion" => $this->getOccasion(),
+                 "promotion" => $this->getPromotion(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

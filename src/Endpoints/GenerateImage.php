@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class GenerateImage extends Endpoint
 {
     public const ENDPOINT = '/v1/business/photosonic/generate-image';
+    public const PARAMS = ['prompt', 'num_images', 'image_width', 'image_height'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $prompt;
@@ -26,8 +30,6 @@ final class GenerateImage extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $prompt, int $num_images, int $image_width, int $image_height)
     {
@@ -49,6 +51,17 @@ final class GenerateImage extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPrompt(string $value): self
+    {
+        $this->prompt = $value;
+        return $this;
+    }
+
+    /**
      * Accessor num_images attribute
      *
      * @return int
@@ -56,6 +69,17 @@ final class GenerateImage extends Endpoint
     public function getNumImages(): int
     {
         return $this->num_images;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setNumImages(int $value): self
+    {
+        $this->num_images = $value;
+        return $this;
     }
 
     /**
@@ -69,6 +93,17 @@ final class GenerateImage extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setImageWidth(int $value): self
+    {
+        $this->image_width = $value;
+        return $this;
+    }
+
+    /**
      * Accessor image_height attribute
      *
      * @return int
@@ -79,17 +114,73 @@ final class GenerateImage extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setImageHeight(int $value): self
+    {
+        $this->image_height = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "prompt" => $this->getPrompt(),
-            "num_images" => $this->getNumImages(),
-            "image_width" => $this->getImageWidth(),
-            "image_height" => $this->getImageHeight(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "prompt" => $this->getPrompt(),
+                 "num_images" => $this->getNumImages(),
+                 "image_width" => $this->getImageWidth(),
+                 "image_height" => $this->getImageHeight(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

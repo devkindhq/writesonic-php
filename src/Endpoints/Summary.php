@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class Summary extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/summary';
+    public const PARAMS = ['article_url', 'article_text'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $article_url;
@@ -20,8 +24,6 @@ final class Summary extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(string $article_url, string $article_text)
     {
@@ -41,6 +43,17 @@ final class Summary extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setArticleUrl(string $value): self
+    {
+        $this->article_url = $value;
+        return $this;
+    }
+
+    /**
      * Accessor article_text attribute
      *
      * @return string
@@ -51,15 +64,71 @@ final class Summary extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setArticleText(string $value): self
+    {
+        $this->article_text = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "article_url" => $this->getArticleUrl(),
-            "article_text" => $this->getArticleText(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "article_url" => $this->getArticleUrl(),
+                 "article_text" => $this->getArticleText(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

@@ -11,6 +11,10 @@ namespace Devkind\WritesonicPhp\Endpoints;
 final class LandingPages extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/landing-pages';
+    public const PARAMS = ['product_name', 'product_description', 'feature_1', 'feature_2', 'feature_3'];
+
+    /** @var array */
+    protected array $payload =[];
 
     /** @var string */
     protected string $product_name;
@@ -29,8 +33,6 @@ final class LandingPages extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(
         string $product_name,
@@ -58,6 +60,17 @@ final class LandingPages extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductName(string $value): self
+    {
+        $this->product_name = $value;
+        return $this;
+    }
+
+    /**
      * Accessor product_description attribute
      *
      * @return string
@@ -65,6 +78,17 @@ final class LandingPages extends Endpoint
     public function getProductDescription(): string
     {
         return $this->product_description;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setProductDescription(string $value): self
+    {
+        $this->product_description = $value;
+        return $this;
     }
 
     /**
@@ -78,6 +102,17 @@ final class LandingPages extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setFeature1(string $value): self
+    {
+        $this->feature_1 = $value;
+        return $this;
+    }
+
+    /**
      * Accessor feature_2 attribute
      *
      * @return string
@@ -85,6 +120,17 @@ final class LandingPages extends Endpoint
     public function getFeature2(): string
     {
         return $this->feature_2;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setFeature2(string $value): self
+    {
+        $this->feature_2 = $value;
+        return $this;
     }
 
     /**
@@ -98,18 +144,74 @@ final class LandingPages extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setFeature3(string $value): self
+    {
+        $this->feature_3 = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "product_name" => $this->getProductName(),
-            "product_description" => $this->getProductDescription(),
-            "feature_1" => $this->getFeature1(),
-            "feature_2" => $this->getFeature2(),
-            "feature_3" => $this->getFeature3(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "product_name" => $this->getProductName(),
+                 "product_description" => $this->getProductDescription(),
+                 "feature_1" => $this->getFeature1(),
+                 "feature_2" => $this->getFeature2(),
+                 "feature_3" => $this->getFeature3(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }

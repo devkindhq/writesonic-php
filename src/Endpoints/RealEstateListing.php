@@ -12,6 +12,20 @@ final class RealEstateListing extends Endpoint
 {
     public const ENDPOINT = '/v1/business/content/real-estate-listing';
 
+    public const PARAMS = [
+        'type',
+        'price',
+        'location',
+        'floor_area',
+        'bedroom',
+        'kitchen',
+        'bathroom',
+        'additional_features',
+    ];
+
+    /** @var array */
+    protected array $payload =[];
+
     /** @var string */
     protected string $type;
 
@@ -38,8 +52,6 @@ final class RealEstateListing extends Endpoint
 
     /**
      * Generates the content on the basis of required parameters.
-     *
-     * @return string
      */
     public function generate(
         string $type,
@@ -73,6 +85,17 @@ final class RealEstateListing extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setType(string $value): self
+    {
+        $this->type = $value;
+        return $this;
+    }
+
+    /**
      * Accessor price attribute
      *
      * @return string
@@ -80,6 +103,17 @@ final class RealEstateListing extends Endpoint
     public function getPrice(): string
     {
         return $this->price;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPrice(string $value): self
+    {
+        $this->price = $value;
+        return $this;
     }
 
     /**
@@ -93,6 +127,17 @@ final class RealEstateListing extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setLocation(string $value): self
+    {
+        $this->location = $value;
+        return $this;
+    }
+
+    /**
      * Accessor floor_area attribute
      *
      * @return string
@@ -100,6 +145,17 @@ final class RealEstateListing extends Endpoint
     public function getFloorArea(): string
     {
         return $this->floor_area;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setFloorArea(string $value): self
+    {
+        $this->floor_area = $value;
+        return $this;
     }
 
     /**
@@ -113,6 +169,17 @@ final class RealEstateListing extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setBedroom(string $value): self
+    {
+        $this->bedroom = $value;
+        return $this;
+    }
+
+    /**
      * Accessor kitchen attribute
      *
      * @return string
@@ -120,6 +187,17 @@ final class RealEstateListing extends Endpoint
     public function getKitchen(): string
     {
         return $this->kitchen;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setKitchen(string $value): self
+    {
+        $this->kitchen = $value;
+        return $this;
     }
 
     /**
@@ -133,6 +211,17 @@ final class RealEstateListing extends Endpoint
     }
 
     /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setBathroom(string $value): self
+    {
+        $this->bathroom = $value;
+        return $this;
+    }
+
+    /**
      * Accessor additional_features attribute
      *
      * @return string
@@ -143,21 +232,77 @@ final class RealEstateListing extends Endpoint
     }
 
     /**
-     * JSON representation of this endpoint
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setAdditionalFeatures(string $value): self
+    {
+        $this->additional_features = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for Payload attribute
+     *
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
+    }
+
+    /**
+     * Setter for payload attribute
+     *
+     * @return self
+     */
+    public function setPayload(array $value): self
+    {
+        $this->payload = $value;
+        return $this;
+    }
+
+    /**
+     * Accessor for endpoint attribute
      *
      * @return string
      */
-    public function toString(): string
+    public function getEndpoint(): string
     {
-        return json_encode([
-            "type" => $this->getType(),
-            "price" => $this->getPrice(),
-            "location" => $this->getLocation(),
-            "floor_area" => $this->getFloorArea(),
-            "bedroom" => $this->getBedroom(),
-            "kitchen" => $this->getKitchen(),
-            "bathroom" => $this->getBathroom(),
-            "additional_features" => $this->getAdditionalFeatures(),
-        ]);
+        return self::ENDPOINT;
+    }
+
+    /**
+     * Accessor for getting Required Parameters attribute
+     *
+     * @return array
+     */
+    public function getRequiredParameters(): array
+    {
+        return self::PARAMS;
+    }
+
+    /**
+     * Array representation of this endpoint
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        try {
+            return [
+                 "type" => $this->getType(),
+                 "price" => $this->getPrice(),
+                 "location" => $this->getLocation(),
+                 "floor_area" => $this->getFloorArea(),
+                 "bedroom" => $this->getBedroom(),
+                 "kitchen" => $this->getKitchen(),
+                 "bathroom" => $this->getBathroom(),
+                 "additional_features" => $this->getAdditionalFeatures(),
+            ];
+        } catch (\Throwable $th) {
+            throw new \InvalidArgumentException(explode(":", $th->getMessage())[1] ?? $th->getMessage());
+        }
     }
 }
