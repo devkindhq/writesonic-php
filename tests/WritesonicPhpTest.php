@@ -166,5 +166,5 @@ final class WritesonicPhpTest extends TestCase
             $this->assertTrue(get_class($th) == \InvalidArgumentException::class);
         }
     }
-    
+
 }
