@@ -1,6 +1,6 @@
 # PHP client to communicate with WriteSonic API
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind-au/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind/writesonic-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind/writesonic-php)
 [![Total Downloads](https://img.shields.io/packagist/dt/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
 ![GitHub Actions](https://github.com/devkind-au/writesonic-php/actions/workflows/main.yml/badge.svg)
 
