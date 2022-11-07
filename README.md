@@ -8,7 +8,7 @@ WritesonicPhp is a simple SDK implementation of Writesonic API. It helps accessi
 
 
 ### Getting the API key
-please register an account and request an api key at [Writesonic](https://writesonic.com). <br/> Please check out the tutorials section for more information<br/>   <ul> <li> [Find your API key](../docs/Find%20Api%20Key) </li> <li>  [Test an endpoint](../docs/Test%20An%20Endpoint)</li> </ul>
+please register an account and request an api key at [Writesonic](https://writesonic.com). <br/> Please check out the tutorials section for more information<br/>   <ul> <li> [Find your API key](https://writesonic.com/api) </li>  </ul>
 
 
 
