@@ -1,7 +1,7 @@
 # PHP client to communicate with WriteSonic API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind/writesonic-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkind-au/writesonic-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/devkind/writesonic-php.svg?style=flat-square)](https://packagist.org/packages/devkindhq/writesonic-php)
 ![GitHub Actions](https://github.com/devkind-au/writesonic-php/actions/workflows/main.yml/badge.svg)
 
 WritesonicPhp is a simple SDK implementation of Writesonic API. It helps accessing the API in an object oriented way.
@@ -175,8 +175,10 @@ If you discover any security related issues, please email backend@devkind.com.au
 
 ## Credits
 
--   [Devkind Developer](https://github.com/devkind-au-au)
--   [All Contributors](../../contributors)
+- [Devkind Developer](https://github.com/devkindhq)
+- [Devkind Developer](https://devkind.com.au/)
+- [All Contributors](../../contributors)
+
 
 ## License
 
